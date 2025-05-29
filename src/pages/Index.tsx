@@ -34,6 +34,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400",
       video: "https://example.com/video1",
       description: "Una salsa fresca y aromática perfecta para carnes asadas",
+      origin: "Argentina",
+      servings: 4,
+      calories: 120,
       ingredients: [
         "1 taza de perejil fresco",
         "4 dientes de ajo",
@@ -48,6 +51,17 @@ const Index = () => {
         "Agregar aceite de oliva gradualmente",
         "Condimentar con orégano, sal y pimienta",
         "Dejar reposar 30 minutos antes de servir"
+      ],
+      tips: [
+        "Usa perejil de hoja plana para mejor sabor",
+        "El chimichurri mejora después de reposar varias horas",
+        "Puedes agregar un poco de ají molido para más picor"
+      ],
+      suggestedDishes: [
+        "Asado argentino",
+        "Empanadas",
+        "Provoleta",
+        "Chorizo a la parrilla"
       ]
     },
     {
@@ -63,6 +77,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400",
       video: "https://example.com/video2",
       description: "Salsa picante tradicional peruana con un sabor único",
+      origin: "Perú",
+      servings: 6,
+      calories: 80,
       ingredients: [
         "8 ajíes amarillos",
         "2 dientes de ajo",
@@ -76,6 +93,17 @@ const Index = () => {
         "Licuar con ajo, aceite y vinagre",
         "Condimentar con sal",
         "Colar para obtener textura suave"
+      ],
+      tips: [
+        "Usa guantes al manipular los ajíes",
+        "La salsa se conserva hasta 1 semana en refrigeración",
+        "Puedes congelar los ajíes cocidos para uso posterior"
+      ],
+      suggestedDishes: [
+        "Papa rellena",
+        "Anticuchos",
+        "Pollo a la brasa",
+        "Causa limeña"
       ]
     },
     {
@@ -91,6 +119,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400",
       video: "https://example.com/video3",
       description: "Cremosa salsa italiana perfecta para pastas",
+      origin: "Italia",
+      servings: 4,
+      calories: 280,
       ingredients: [
         "1/2 taza de mantequilla",
         "1 taza de crema de leche",
@@ -104,6 +135,17 @@ const Index = () => {
         "Incorporar crema de leche",
         "Añadir queso parmesano gradualmente",
         "Condimentar con nuez moscada"
+      ],
+      tips: [
+        "No dejes que hierva para evitar que se corte",
+        "Usa queso parmesano recién rallado",
+        "Sirve inmediatamente para mejor textura"
+      ],
+      suggestedDishes: [
+        "Fettuccine Alfredo",
+        "Ravioles",
+        "Gnocchi",
+        "Pollo a la parmesana"
       ]
     },
     {
@@ -119,6 +161,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=400",
       video: "https://example.com/video4",
       description: "Auténtica salsa japonesa con balance perfecto de sabores",
+      origin: "Japón",
+      servings: 8,
+      calories: 60,
       ingredients: [
         "1/2 taza de salsa de soja",
         "1/4 taza de mirin",
@@ -132,6 +177,17 @@ const Index = () => {
         "Reducir fuego y cocinar 15 minutos",
         "Remover hasta que espese",
         "Colar antes de usar"
+      ],
+      tips: [
+        "La consistencia debe ser como miel ligera",
+        "Se espesa al enfriarse",
+        "Puedes añadir semillas de sésamo al final"
+      ],
+      suggestedDishes: [
+        "Pollo teriyaki",
+        "Salmón glaseado",
+        "Vegetales salteados",
+        "Yakitori"
       ]
     },
     {
@@ -147,6 +203,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1608039755401-742074f0548d?w=400",
       video: "https://example.com/video5",
       description: "Tradicional salsa española con tomates y frutos secos",
+      origin: "España",
+      servings: 6,
+      calories: 150,
       ingredients: [
         "4 tomates maduros",
         "2 pimientos rojos asados",
@@ -161,6 +220,17 @@ const Index = () => {
         "Tostar almendras y ajo",
         "Triturar todos los ingredientes",
         "Agregar aceite gradualmente"
+      ],
+      tips: [
+        "Asa los vegetables hasta que estén bien dorados",
+        "La textura debe ser rústica, no completamente lisa",
+        "Mejora el sabor si reposa una noche"
+      ],
+      suggestedDishes: [
+        "Escalivada",
+        "Pescado a la plancha",
+        "Calçots",
+        "Verduras asadas"
       ]
     },
     {
@@ -176,6 +246,9 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=400",
       video: "https://example.com/video6",
       description: "Refrescante salsa griega con yogur y pepino",
+      origin: "Grecia",
+      servings: 4,
+      calories: 90,
       ingredients: [
         "2 tazas de yogur griego",
         "1 pepino grande",
@@ -190,6 +263,17 @@ const Index = () => {
         "Mezclar yogur con pepino y ajo",
         "Agregar aceite y vinagre",
         "Decorar con eneldo fresco"
+      ],
+      tips: [
+        "Escurre bien el pepino para evitar que se aguade",
+        "Deja reposar en refrigerador por 2 horas antes de servir",
+        "Puedes usar menta en lugar de eneldo"
+      ],
+      suggestedDishes: [
+        "Gyros",
+        "Souvlaki",
+        "Moussaka",
+        "Ensalada griega"
       ]
     }
   ];

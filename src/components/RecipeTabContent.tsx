@@ -14,6 +14,12 @@ interface RecipeTabContentProps {
 const RecipeTabContent = ({ ingredients, steps, tips, suggestedDishes }: RecipeTabContentProps) => {
   const [activeTab, setActiveTab] = useState("ingredients");
 
+  // Provide fallbacks for undefined arrays
+  const safeIngredients = ingredients || [];
+  const safeSteps = steps || [];
+  const safeTips = tips || [];
+  const safeSuggestedDishes = suggestedDishes || [];
+
   return (
     <>
       {/* Tabs */}
@@ -70,10 +76,10 @@ const RecipeTabContent = ({ ingredients, steps, tips, suggestedDishes }: RecipeT
           {activeTab === "ingredients" && (
             <div>
               <h3 className="text-lg font-semibold mb-4 text-gray-800">
-                Ingredientes ({ingredients.length})
+                Ingredientes ({safeIngredients.length})
               </h3>
               <div className="space-y-3">
-                {ingredients.map((ingredient, index) => (
+                {safeIngredients.map((ingredient, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-gradient-to-r from-red-400 to-orange-400 rounded-full" />
                     <span className="text-gray-700">{ingredient}</span>
@@ -89,7 +95,7 @@ const RecipeTabContent = ({ ingredients, steps, tips, suggestedDishes }: RecipeT
                 Pasos de preparación
               </h3>
               <div className="space-y-4">
-                {steps.map((step, index) => (
+                {safeSteps.map((step, index) => (
                   <div key={index} className="flex space-x-4">
                     <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center text-white font-semibold text-sm">
                       {index + 1}
@@ -108,7 +114,7 @@ const RecipeTabContent = ({ ingredients, steps, tips, suggestedDishes }: RecipeT
                 Tips del Chef
               </h3>
               <div className="space-y-4">
-                {tips.map((tip, index) => (
+                {safeTips.map((tip, index) => (
                   <div key={index} className="flex space-x-3 p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">
                     <Lightbulb className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
                     <p className="text-gray-700 leading-relaxed">{tip}</p>
@@ -125,7 +131,7 @@ const RecipeTabContent = ({ ingredients, steps, tips, suggestedDishes }: RecipeT
                 Platillos sugeridos
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {suggestedDishes.map((dish, index) => (
+                {safeSuggestedDishes.map((dish, index) => (
                   <div key={index} className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg border border-green-200 hover:bg-green-100 transition-colors">
                     <Utensils className="w-5 h-5 text-green-500" />
                     <span className="text-gray-700 font-medium">{dish}</span>
