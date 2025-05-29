@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Heart, Search, Star, Play, Clock, Users, ChefHat } from "lucide-react";
+import { Heart, Search, Star, Play, Clock, Users, ChefHat, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -31,6 +30,7 @@ const Index = () => {
       rating: 4.8,
       reviews: 234,
       category: "fresh",
+      spiciness: 1,
       image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400",
       video: "https://example.com/video1",
       description: "Una salsa fresca y aromática perfecta para carnes asadas",
@@ -59,6 +59,7 @@ const Index = () => {
       rating: 4.9,
       reviews: 189,
       category: "spicy",
+      spiciness: 4,
       image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400",
       video: "https://example.com/video2",
       description: "Salsa picante tradicional peruana con un sabor único",
@@ -86,6 +87,7 @@ const Index = () => {
       rating: 4.7,
       reviews: 456,
       category: "creamy",
+      spiciness: 0,
       image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400",
       video: "https://example.com/video3",
       description: "Cremosa salsa italiana perfecta para pastas",
@@ -113,6 +115,7 @@ const Index = () => {
       rating: 4.6,
       reviews: 312,
       category: "exotic",
+      spiciness: 1,
       image: "https://images.unsplash.com/photo-1626804475297-41608ea09aeb?w=400",
       video: "https://example.com/video4",
       description: "Auténtica salsa japonesa con balance perfecto de sabores",
@@ -140,6 +143,7 @@ const Index = () => {
       rating: 4.8,
       reviews: 198,
       category: "spicy",
+      spiciness: 3,
       image: "https://images.unsplash.com/photo-1608039755401-742074f0548d?w=400",
       video: "https://example.com/video5",
       description: "Tradicional salsa española con tomates y frutos secos",
@@ -168,6 +172,7 @@ const Index = () => {
       rating: 4.5,
       reviews: 267,
       category: "fresh",
+      spiciness: 0,
       image: "https://images.unsplash.com/photo-1563379091339-03246963d96a?w=400",
       video: "https://example.com/video6",
       description: "Refrescante salsa griega con yogur y pepino",
@@ -201,6 +206,23 @@ const Index = () => {
       newFavorites.add(recipeId);
     }
     setFavorites(newFavorites);
+  };
+
+  const getSpicyIcons = (level) => {
+    const icons = [];
+    for (let i = 0; i < 5; i++) {
+      icons.push(
+        <Flame
+          key={i}
+          className={`w-3 h-3 ${
+            i < level 
+              ? "text-red-500 fill-red-500" 
+              : "text-gray-300"
+          }`}
+        />
+      );
+    }
+    return icons;
   };
 
   if (selectedRecipe) {
@@ -308,6 +330,10 @@ const Index = () => {
                 <Badge className="absolute bottom-2 left-2 bg-gradient-to-r from-red-500 to-orange-500">
                   {recipe.difficulty}
                 </Badge>
+                {/* Spiciness indicator */}
+                <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center space-x-1">
+                  {getSpicyIcons(recipe.spiciness)}
+                </div>
               </div>
               <CardHeader className="pb-2">
                 <h3 className="font-semibold text-lg line-clamp-2 text-gray-800">
@@ -335,6 +361,12 @@ const Index = () => {
                       <ChefHat className="w-3 h-3 text-white" />
                     </div>
                     <span className="text-sm text-gray-600">{recipe.chef}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <span className="text-xs text-gray-500">Picor:</span>
+                    <div className="flex space-x-0.5">
+                      {getSpicyIcons(recipe.spiciness)}
+                    </div>
                   </div>
                 </div>
               </CardContent>

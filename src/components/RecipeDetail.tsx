@@ -1,5 +1,4 @@
-
-import { ArrowLeft, Heart, Star, Clock, Users, Play, Share, Bookmark } from "lucide-react";
+import { ArrowLeft, Heart, Star, Clock, Users, Play, Share, Bookmark, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +13,7 @@ interface Recipe {
   difficulty: string;
   rating: number;
   reviews: number;
+  spiciness: number;
   image: string;
   video: string;
   description: string;
@@ -30,6 +30,23 @@ interface RecipeDetailProps {
 
 const RecipeDetail = ({ recipe, onBack, isFavorite, onToggleFavorite }: RecipeDetailProps) => {
   const [activeTab, setActiveTab] = useState("ingredients");
+
+  const getSpicyIcons = (level: number) => {
+    const icons = [];
+    for (let i = 0; i < 5; i++) {
+      icons.push(
+        <Flame
+          key={i}
+          className={`w-4 h-4 ${
+            i < level 
+              ? "text-red-500 fill-red-500" 
+              : "text-gray-300"
+          }`}
+        />
+      );
+    }
+    return icons;
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
@@ -104,6 +121,12 @@ const RecipeDetail = ({ recipe, onBack, isFavorite, onToggleFavorite }: RecipeDe
               <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
                 {recipe.difficulty}
               </Badge>
+              <div className="flex items-center space-x-1">
+                <span className="text-sm">Picor:</span>
+                <div className="flex space-x-0.5">
+                  {getSpicyIcons(recipe.spiciness)}
+                </div>
+              </div>
             </div>
           </div>
         </div>
